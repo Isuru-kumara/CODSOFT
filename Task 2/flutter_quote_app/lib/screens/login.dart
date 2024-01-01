@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Spacer(),
+              const SizedBox(height: 50),
               RichText(
                 text: TextSpan(
                   style: GoogleFonts.lato(
@@ -35,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
               Center(
                 child: Image.asset(
                   "assets/profile.jpg",
@@ -45,13 +46,11 @@ class _LoginPageState extends State<LoginPage> {
               // const Spacer(
               //   flex: 2,
               // ),
-              const SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 20),
               const TextField(
                 decoration: InputDecoration(labelText: "Your Name"),
               ),
-              const Spacer(),
+              const SizedBox(height: 30),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -68,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text("Continue"),
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 50),
             ],
           ),
         ),
