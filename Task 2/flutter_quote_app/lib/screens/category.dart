@@ -9,6 +9,14 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
+  List<String> categories = [
+    'Inspirational',
+    'Motivational',
+    'Love and Relationships',
+    'Wisdom and Life Lessons',
+    'Humorous Quotes',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +26,7 @@ class _CategoryPageState extends State<CategoryPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(
-              flex: 1,
-            ),
+            const Spacer(flex: 1),
             RichText(
               text: TextSpan(
                 style: GoogleFonts.lato(
@@ -28,31 +34,59 @@ class _CategoryPageState extends State<CategoryPage> {
                 ),
                 children: const [
                   TextSpan(
-                      text: "How do you want to be called?",
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold)),
+                    text: "Which aspects of your life do you wish to enhance?",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),
-            const Spacer(
-              flex: 2,
+            const Spacer(flex: 2),
+            Column(
+              children: categories
+                  .map(
+                    (category) => Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: ListTile(
+                            title: Text(category),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                              );
+                            },
+                          ),
+                        ),
+                        const Divider(),
+                      ],
+                    ),
+                  )
+                  .toList(),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 13, 0, 88),
-                  onPrimary: Colors.white,
-                ),
-                child: const Text("Continue"),
-              ),
-            ),
+            // const Spacer(),
+            // SizedBox(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(builder: (context) => const HomePage()),
+            //       );
+            //     },
+            //     style: ElevatedButton.styleFrom(
+            //       primary: const Color.fromARGB(255, 13, 0, 88),
+            //       onPrimary: Colors.white,
+            //     ),
+            //     child: const Text("Continue"),
+            //   ),
+            // ),
             const Spacer(),
           ],
         ),

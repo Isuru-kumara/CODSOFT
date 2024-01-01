@@ -14,59 +14,63 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Spacer(),
-            RichText(
-              text: TextSpan(
-                style: GoogleFonts.lato(
-                  textStyle: const TextStyle(color: Colors.black),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              RichText(
+                text: TextSpan(
+                  style: GoogleFonts.lato(
+                    textStyle: const TextStyle(color: Colors.black),
+                  ),
+                  children: const [
+                    TextSpan(
+                        text: "How do you want to be called?",
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold)),
+                  ],
                 ),
-                children: const [
-                  TextSpan(
-                      text: "How do you want to be called?",
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold)),
-                ],
               ),
-            ),
-            Center(
-              child: Image.asset(
-                "assets/profile.jpg",
-                height: 350,
-                width: 350,
-              ),
-            ),
-            // const Spacer(
-            //   flex: 2,
-            // ),
-            const SizedBox(
-              height: 30,
-            ),
-            const TextField(
-              decoration: InputDecoration(labelText: "Your Name"),
-            ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CategoryPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 13, 0, 88),
-                  onPrimary: Colors.white,
+              Center(
+                child: Image.asset(
+                  "assets/profile.jpg",
+                  height: 350,
+                  width: 350,
                 ),
-                child: const Text("Continue"),
               ),
-            ),
-            const Spacer(),
-          ],
+              // const Spacer(
+              //   flex: 2,
+              // ),
+              const SizedBox(
+                height: 30,
+              ),
+              const TextField(
+                decoration: InputDecoration(labelText: "Your Name"),
+              ),
+              const Spacer(),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CategoryPage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 13, 0, 88),
+                    onPrimary: Colors.white,
+                  ),
+                  child: const Text("Continue"),
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
