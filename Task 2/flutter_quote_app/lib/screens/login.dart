@@ -43,9 +43,6 @@ class _LoginPageState extends State<LoginPage> {
                   width: 350,
                 ),
               ),
-              // const Spacer(
-              //   flex: 2,
-              // ),
               const SizedBox(height: 20),
               const TextField(
                 decoration: InputDecoration(labelText: "Your Name"),

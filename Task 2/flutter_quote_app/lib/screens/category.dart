@@ -70,23 +70,6 @@ class _CategoryPageState extends State<CategoryPage> {
                   )
                   .toList(),
             ),
-            // const Spacer(),
-            // SizedBox(
-            //   width: double.infinity,
-            //   child: ElevatedButton(
-            //     onPressed: () {
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(builder: (context) => const HomePage()),
-            //       );
-            //     },
-            //     style: ElevatedButton.styleFrom(
-            //       primary: const Color.fromARGB(255, 13, 0, 88),
-            //       onPrimary: Colors.white,
-            //     ),
-            //     child: const Text("Continue"),
-            //   ),
-            // ),
             const Spacer(),
           ],
         ),

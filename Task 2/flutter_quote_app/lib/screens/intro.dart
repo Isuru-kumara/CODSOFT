@@ -64,16 +64,3 @@ class IntroPage extends StatelessWidget {
     );
   }
 }
-//                 color: Colors.black,
-//                 textColor: Colors.white,
-//                 child: Text("Let's Go"),
-//               ),
-//             ),
-//             Spacer(),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
