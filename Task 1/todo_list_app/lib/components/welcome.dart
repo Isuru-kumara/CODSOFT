@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:todo_list_app/components/home_screen.dart';
+import 'package:todo_list_app/widgets/utiles.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -10,14 +12,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: todoBGColor,
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 80),
               RichText(
                 text: TextSpan(
                   style: GoogleFonts.lato(
@@ -25,9 +27,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   children: const [
                     TextSpan(
-                      text: "How do you want to be called?",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      text: "Your Workspace is ready !",
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ],
                 ),
@@ -35,33 +39,29 @@ class _LoginPageState extends State<LoginPage> {
               //SizedBox(height: 20),
               Center(
                 child: Image.asset(
-                  "assets/profile.jpg",
-                  height: 500,
-                  width: 500,
+                  "assets/welcome.png",
+                  height: 650,
+                  width: 650,
                 ),
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(labelText: "Your Name"),
-              ),
-              SizedBox(height: 50),
-              SizedBox(
-                width: double.infinity,
+              SizedBox(height: 5),
+              Align(
+                alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => CategoryPage()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 13, 0, 88),
+                    primary: Colors.black,
                     onPrimary: Colors.white,
+                    side: BorderSide(color: todoYellow),
                   ),
                   child: const Text("Continue"),
                 ),
               ),
-              SizedBox(height: 200),
             ],
           ),
         ),

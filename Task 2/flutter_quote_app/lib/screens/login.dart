@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quote_app/screens/category.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'home.dart';
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();

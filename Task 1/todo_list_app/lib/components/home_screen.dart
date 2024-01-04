@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_app/components/add_todo_screen.dart';
 import '../components/list.dart';
 import '../widgets/utiles.dart';
 import '../widgets/list_item.dart';
@@ -24,7 +25,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tdBGColor,
+      backgroundColor: todoBGColor,
       appBar: _buildAppBar(),
       body: Stack(
         children: [
@@ -45,10 +46,11 @@ class _HomeState extends State<Home> {
                           bottom: 20,
                         ),
                         child: Text(
-                          'All ToDos',
+                          'Your To-Do List',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -69,38 +71,39 @@ class _HomeState extends State<Home> {
             child: Row(children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(
-                    bottom: 20,
-                    right: 20,
-                    left: 20,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 5,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 10.0,
-                        spreadRadius: 0.0,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextField(
-                    controller: _todoController,
-                    decoration: InputDecoration(
-                        hintText: 'Add a new todo item',
-                        border: InputBorder.none),
-                  ),
-                ),
+                    // margin: EdgeInsets.only(
+                    //   bottom: 20,
+                    //   right: 20,
+                    //   left: 20,
+                    // ),
+                    // padding: EdgeInsets.symmetric(
+                    //   horizontal: 20,
+                    //   vertical: 20,
+                    // ),
+                    // decoration: BoxDecoration(
+                    //   color: Color.fromARGB(255, 81, 255, 0),
+                    //   boxShadow: const [
+                    //     BoxShadow(
+                    //       color: Colors.grey,
+                    //       offset: Offset(0.0, 0.0),
+                    //       blurRadius: 10.0,
+                    //       spreadRadius: 0.0,
+                    //     ),
+                    //   ],
+                    //   borderRadius: BorderRadius.circular(10),
+                    // ),
+                    // child: TextField(
+                    //   controller: _todoController,
+                    //   decoration: InputDecoration(
+                    //       hintText: 'Enter your todo task',
+                    //       border: InputBorder.none),
+                    // ),
+                    ),
               ),
               Container(
                 margin: EdgeInsets.only(
-                  bottom: 20,
+                  bottom: 0,
+                  top: 500,
                   right: 20,
                 ),
                 child: ElevatedButton(
@@ -108,13 +111,14 @@ class _HomeState extends State<Home> {
                     '+',
                     style: TextStyle(
                       fontSize: 40,
+                      color: Colors.black,
                     ),
                   ),
                   onPressed: () {
                     _addToDoItem(_todoController.text);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: tdBlue,
+                    primary: todoYellow,
                     minimumSize: Size(60, 60),
                     elevation: 10,
                   ),
@@ -139,15 +143,31 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _addToDoItem(String toDo) {
-    setState(() {
-      todosList.add(ToDo(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        todoText: toDo,
-      ));
-    });
-    _todoController.clear();
+  void _addToDoItem(String toDo) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AddTodoScreen()),
+    );
+
+    if (result != null && result is String) {
+      setState(() {
+        todosList.add(ToDo(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          todoText: result,
+        ));
+      });
+    }
   }
+
+  // void _addToDoItem(String toDo) {
+  //   setState(() {
+  //     todosList.add(ToDo(
+  //       id: DateTime.now().millisecondsSinceEpoch.toString(),
+  //       todoText: toDo,
+  //     ));
+  //   });
+  //   _todoController.clear();
+  // }
 
   void _runFilter(String enteredKeyword) {
     List<ToDo> results = [];
@@ -166,6 +186,8 @@ class _HomeState extends State<Home> {
     });
   }
 
+//Search
+
   Widget searchBox() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
@@ -179,7 +201,7 @@ class _HomeState extends State<Home> {
           contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(
             Icons.search,
-            color: tdBlack,
+            color: todoBlack,
             size: 20,
           ),
           prefixIconConstraints: BoxConstraints(
@@ -187,8 +209,8 @@ class _HomeState extends State<Home> {
             minWidth: 25,
           ),
           border: InputBorder.none,
-          hintText: 'Search',
-          hintStyle: TextStyle(color: tdGrey),
+          hintText: 'Search Your Task',
+          hintStyle: TextStyle(color: todoGrey),
         ),
       ),
     );
@@ -196,7 +218,7 @@ class _HomeState extends State<Home> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: tdBGColor,
+      backgroundColor: todoBGColor,
       elevation: 0,
       title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         // Icon(
