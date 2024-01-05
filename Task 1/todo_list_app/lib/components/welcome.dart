@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text("Continue"),
                 ),
               ),
-              const SizedBox(height: 200),
+              const SizedBox(height: 50),
             ],
           ),
         ),

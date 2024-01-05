@@ -11,12 +11,28 @@ class ToDo {
 
   static List<ToDo> todoList() {
     return [
-      ToDo(id: '01', todoText: 'Morning Excercise', isDone: true ),
-      ToDo(id: '02', todoText: 'Buy Groceries', isDone: true ),
-      ToDo(id: '03', todoText: 'Check Emails', ),
-      ToDo(id: '04', todoText: 'Team Meeting', ),
-      ToDo(id: '05', todoText: 'Work on mobile apps for 2 hour', ),
-      ToDo(id: '06', todoText: 'Dinner with Jenny', ),
+      ToDo(id: '01', todoText: 'Complete the project proposal', isDone: true),
+      ToDo(id: '02', todoText: 'Go for a 30-minute walk', isDone: true),
+      ToDo(
+        id: '03',
+        todoText: 'Read a chapter of a book',
+      ),
+      ToDo(
+        id: '04',
+        todoText: 'Call a friend or family member',
+      ),
+      ToDo(
+        id: '05',
+        todoText: 'Organize your desk/workspace',
+      ),
+      ToDo(
+        id: '06',
+        todoText: 'Learn a new recipe and cook a meal',
+      ),
+      ToDo(id: '07', todoText: 'Write a to-do list for the week'),
+      ToDo(id: '08', todoText: 'Practice mindfulness or meditation'),
+      ToDo(id: '09', todoText: 'Attend a virtual event or webinar'),
+      ToDo(id: '10', todoText: 'Start a new hobby or learn a new skill'),
     ];
   }
 }
