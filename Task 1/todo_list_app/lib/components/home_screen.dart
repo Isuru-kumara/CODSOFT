@@ -71,33 +71,7 @@ class _HomeState extends State<Home> {
             child: Row(children: [
               Expanded(
                 child: Container(
-                    // margin: EdgeInsets.only(
-                    //   bottom: 20,
-                    //   right: 20,
-                    //   left: 20,
-                    // ),
-                    // padding: EdgeInsets.symmetric(
-                    //   horizontal: 20,
-                    //   vertical: 20,
-                    // ),
-                    // decoration: BoxDecoration(
-                    //   color: Color.fromARGB(255, 81, 255, 0),
-                    //   boxShadow: const [
-                    //     BoxShadow(
-                    //       color: Colors.grey,
-                    //       offset: Offset(0.0, 0.0),
-                    //       blurRadius: 10.0,
-                    //       spreadRadius: 0.0,
-                    //     ),
-                    //   ],
-                    //   borderRadius: BorderRadius.circular(10),
-                    // ),
-                    // child: TextField(
-                    //   controller: _todoController,
-                    //   decoration: InputDecoration(
-                    //       hintText: 'Enter your todo task',
-                    //       border: InputBorder.none),
-                    // ),
+                    //Add container for alignment
                     ),
               ),
               Container(
@@ -159,16 +133,6 @@ class _HomeState extends State<Home> {
     }
   }
 
-  // void _addToDoItem(String toDo) {
-  //   setState(() {
-  //     todosList.add(ToDo(
-  //       id: DateTime.now().millisecondsSinceEpoch.toString(),
-  //       todoText: toDo,
-  //     ));
-  //   });
-  //   _todoController.clear();
-  // }
-
   void _runFilter(String enteredKeyword) {
     List<ToDo> results = [];
     if (enteredKeyword.isEmpty) {
@@ -220,21 +184,8 @@ class _HomeState extends State<Home> {
     return AppBar(
       backgroundColor: todoBGColor,
       elevation: 0,
-      title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        // Icon(
-        //   Icons.menu,
-        //   color: tdBlack,
-        //   size: 30,
-        // ),
-        // Container(
-        //   height: 40,
-        //   width: 40,
-        //   child: ClipRRect(
-        //     borderRadius: BorderRadius.circular(20),
-        //     child: Image.asset('assets/images/avatar.jpeg'),
-        //   ),
-        // ),
-      ]),
+      title:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: []),
     );
   }
 }
