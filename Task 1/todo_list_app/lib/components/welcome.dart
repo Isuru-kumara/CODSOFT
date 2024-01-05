@@ -36,15 +36,15 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              //SizedBox(height: 20),
+              SizedBox(height: 70),
               Center(
                 child: Image.asset(
-                  "assets/welcome.png",
-                  height: 650,
-                  width: 650,
+                  "assets/first.png",
+                  height: 350,
+                  width: 350,
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 200),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text("Continue"),
                 ),
               ),
+              const SizedBox(height: 200),
             ],
           ),
         ),
